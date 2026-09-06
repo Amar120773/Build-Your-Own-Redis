@@ -1,3 +1,22 @@
+# What is Redis!
+
+Redis is a super-fast, temporary notebook for your computer applications.
+
+To understand it, let’s compare it to a normal database (like SQL or Postgres), which is like a filing cabinet. If you want to read a file from a filing cabinet, you have to stand up, walk over, pull open the heavy drawer, find the folder, and pull out the paper. This takes time. This is how normal databases work—they save data permanently to a hard drive, which is safe, but relatively slow to read from.
+
+Redis, on the other hand, is like a sticky note on your desk. If you want to read the sticky note, you just look down. It’s instant. Redis achieves this speed by storing all its data in your computer's RAM (Memory) instead of the hard drive.
+
+Because reading from memory is incredibly fast, Redis is heavily used for things where speed is everything:
+
+Caching: Storing the results of a really slow database query so the next person who asks for it gets the answer instantly.
+Session Storage: Keeping track of users who are currently logged into a website.
+Shopping Carts: Remembering what you put in your cart while you browse around Amazon.
+Temporary Data: Like you just built! When you told Redis to SET temp_key "I will vanish" PX 5000, it held onto it for exactly 5 seconds and then threw it away.
+The trade-off is that RAM is expensive and temporary. If your computer loses power, the sticky note gets thrown away (though Redis has clever backup features, like the .rdb files you wrote a parser for, to save snapshots of the sticky notes to the filing cabinet just in case!).
+
+So when you built your clone using a ConcurrentHashMap in Java, you literally built the exact thing Redis is famous for: a blazing-fast, memory-based dictionary!
+
+
 # Build Your Own Redis (Java)
 
 A Redis server clone built with standard Java networking libraries (`java.net` + `java.io`). No external dependencies.
