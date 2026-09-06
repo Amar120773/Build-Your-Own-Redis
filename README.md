@@ -62,9 +62,8 @@ mvn compile exec:java -Dexec.args="--port 6380 --dir /tmp --dbfilename dump.rdb"
 
 ## Demo Output
 
-Here is what it looks like when interacting with the custom server using the official `redis-cli`:
+Here is a real interaction with the server using the official `redis-cli`:
 
-```bash
 $ redis-cli PING
 PONG
 
@@ -77,10 +76,15 @@ $ redis-cli GET message
 $ redis-cli SET temp_key "I will vanish in 5 seconds" PX 5000
 OK
 
-$ redis-cli GET temp_key
-"I will vanish in 5 seconds"
+$ redis-cli SET name "John Doe"
+OK
 
-# ... wait 5 seconds ...
+$ redis-cli GET name
+"John Doe"
 
-$ redis-cli GET temp_key
+$ redis-cli SET disappearing_message "I'll be gone soon" PX 5000
+OK
+
+# Wait 5 seconds...
+$ redis-cli GET disappearing_message
 (nil)
