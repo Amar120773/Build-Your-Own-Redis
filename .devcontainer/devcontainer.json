@@ -1,0 +1,19 @@
+{
+    "name": "Build Your Own Redis",
+    "image": "mcr.microsoft.com/devcontainers/java:17",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "17",
+            "installMaven": "true"
+        }
+    },
+    "forwardPorts": [6379],
+    "postCreateCommand": "mvn compile",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack"
+            ]
+        }
+    }
+}
